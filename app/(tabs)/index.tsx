@@ -1,6 +1,9 @@
+import { useRouter } from 'expo-router';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>🐾 AuMigo</Text>
@@ -15,7 +18,10 @@ export default function HomeScreen() {
         <Text style={styles.cardText}>Próximo passo: cadastre seu primeiro pet</Text>
       </View>
 
-      <TouchableOpacity style={styles.button} activeOpacity={0.85}>
+      <TouchableOpacity
+        style={styles.button}
+        activeOpacity={0.85}
+        onPress={() => router.push('/cadastrar-pet')}>
         <Text style={styles.buttonText}>Cadastrar meu pet</Text>
       </TouchableOpacity>
     </View>
